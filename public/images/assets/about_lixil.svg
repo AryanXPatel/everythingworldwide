@@ -1,0 +1,20 @@
+<svg id="LIXILロゴ" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="116.098" height="39.919" viewBox="0 0 116.098 39.919">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="長方形_3159" data-name="長方形 3159" width="116.098" height="39.919" fill="#e75400"/>
+    </clipPath>
+  </defs>
+  <g id="グループ_1379" data-name="グループ 1379">
+    <g id="グループ_1378" data-name="グループ 1378" clip-path="url(#clip-path)">
+      <path id="パス_3851" data-name="パス 3851" d="M9.531,28.776a1.529,1.529,0,0,1-1.52-1.534V5.72H0V28.677a7.444,7.444,0,0,0,7.412,7.474H18.344V28.776Z" transform="translate(0 -0.976)" fill="#e75400"/>
+      <path id="パス_3852" data-name="パス 3852" d="M128.353,28.776a1.529,1.529,0,0,1-1.52-1.534V5.72h-8.011V28.677a7.444,7.444,0,0,0,7.412,7.474h10.931V28.776Z" transform="translate(-21.069 -0.976)" fill="#e75400"/>
+    </g>
+  </g>
+  <rect id="長方形_3160" data-name="長方形 3160" width="7.872" height="30.803" transform="translate(26.238 4.559)" fill="#e75400"/>
+  <rect id="長方形_3161" data-name="長方形 3161" width="7.872" height="30.803" transform="translate(80.48 4.559)" fill="#e75400"/>
+  <g id="グループ_1381" data-name="グループ 1381">
+    <g id="グループ_1380" data-name="グループ 1380" clip-path="url(#clip-path)">
+      <path id="パス_3853" data-name="パス 3853" d="M72,18.8,82.131,4.747,75.65,0,66.217,13.089,56.783,0,50.3,4.747,60.429,18.8a2.118,2.118,0,0,1,0,2.319L50.3,35.172l6.48,4.747L66.217,26.83,75.65,39.919l6.481-4.747L72,21.12A2.121,2.121,0,0,1,72,18.8" transform="translate(-8.919 0)" fill="#e75400"/>
+    </g>
+  </g>
+</svg>

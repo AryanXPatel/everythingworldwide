@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="61" height="61" viewBox="0 0 61 61">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e8d4a1"/>
+      <stop offset="1" stop-color="#c7ae93"/>
+    </linearGradient>
+  </defs>
+  <g id="sp_menu" data-name="sp menu" transform="translate(8663 11768)">
+    <rect id="長方形_3542" data-name="長方形 3542" width="61" height="61" transform="translate(-8663 -11768)" fill="url(#linear-gradient)"/>
+    <g id="グループ_2067" data-name="グループ 2067" transform="translate(-8969 -11761)">
+      <rect id="長方形_1486" data-name="長方形 1486" width="20" height="2" transform="translate(327 12)" fill="#fff"/>
+      <rect id="長方形_1487" data-name="長方形 1487" width="20" height="2" transform="translate(327 20)" fill="#fff"/>
+      <rect id="長方形_1488" data-name="長方形 1488" width="20" height="2" transform="translate(327 28)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

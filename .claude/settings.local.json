@@ -1,0 +1,9 @@
+{
+  "enabledMcpjsonServers": [
+    "shadcn",
+    "chrome-devtools",
+    "serena",
+    "shopify-dev-mcp"
+  ],
+  "enableAllProjectMcpServers": true
+}

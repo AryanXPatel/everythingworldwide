@@ -1,0 +1,8 @@
+{
+  "enabledMcpjsonServers": [
+    "shadcn",
+    "serena",
+    "shopify-dev-mcp"
+  ],
+  "enableAllProjectMcpServers": true
+}

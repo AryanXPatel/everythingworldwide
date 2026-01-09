@@ -1,0 +1,158 @@
+/* KINUAMI Design System - Air Company Inspired */
+
+/* ============================================
+   1. FONTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+:root {
+    /* Font Families */
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* ============================================
+       2. COLORS - Only 5 total
+       ============================================ */
+    --black: #000000;
+    --white: #FFFFFF;
+    --cream: #F8F6F3;
+    --accent: #C9A96E;
+    --text-muted: #666666;
+
+    /* ============================================
+       3. TYPOGRAPHY SCALE
+       ============================================ */
+    --text-hero: clamp(3.5rem, 12vw, 10rem);
+    --text-display: clamp(2.5rem, 8vw, 6rem);
+    --text-heading: clamp(1.75rem, 4vw, 3rem);
+    --text-subhead: clamp(1.125rem, 2vw, 1.5rem);
+    --text-body: 1rem;
+    --text-small: 0.875rem;
+    --text-micro: 0.75rem;
+
+    /* Line Heights - Tight for impact */
+    --leading-hero: 0.9;
+    --leading-display: 0.95;
+    --leading-heading: 1.05;
+    --leading-body: 1.5;
+
+    /* Letter Spacing */
+    --tracking-hero: -0.04em;
+    --tracking-display: -0.03em;
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.12em;
+
+    /* ============================================
+       4. SPACING - 8px base scale
+       ============================================ */
+    --space-1: 0.5rem;   /* 8px */
+    --space-2: 1rem;     /* 16px */
+    --space-3: 1.5rem;   /* 24px */
+    --space-4: 2rem;     /* 32px */
+    --space-6: 3rem;     /* 48px */
+    --space-8: 4rem;     /* 64px */
+    --space-12: 6rem;    /* 96px */
+    --space-16: 8rem;    /* 128px */
+    --space-24: 12rem;   /* 192px */
+
+    /* ============================================
+       5. ANIMATION - Single easing
+       ============================================ */
+    --ease: cubic-bezier(0.33, 1, 0.68, 1);
+    --duration-fast: 200ms;
+    --duration-normal: 400ms;
+    --duration-slow: 800ms;
+}
+
+/* ============================================
+   6. BASE RESET
+   ============================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 400;
+    line-height: var(--leading-body);
+    color: var(--black);
+    background: var(--white);
+}
+
+/* ============================================
+   7. TYPOGRAPHY BASE
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: var(--leading-heading);
+    letter-spacing: var(--tracking-tight);
+}
+
+p {
+    max-width: 65ch;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ============================================
+   8. UTILITY CLASSES
+   ============================================ */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ============================================
+   9. RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    :root {
+        --text-hero: clamp(2.5rem, 14vw, 4rem);
+        --text-display: clamp(2rem, 10vw, 3rem);
+        --space-12: 4rem;
+        --space-16: 5rem;
+        --space-24: 6rem;
+    }
+}
+
+/* ==========================================================================
+   SHOP PAGE EXTENSIONS
+   ========================================================================== */
+
+:root {
+  /* Shop-specific timing */
+  --shop-transition-slow: 1200ms;
+  --shop-transition-medium: 600ms;
+  --shop-transition-fast: 300ms;
+
+  /* Shop-specific sizing */
+  --shop-hero-height: 100svh;
+  --shop-card-radius: 0;
+  --shop-card-radius-soft: 4px;
+
+  /* Shop typography - massive editorial scale */
+  --shop-text-massive: clamp(6rem, 18vw, 18rem);
+  --shop-text-statement: clamp(1.75rem, 5vw, 4rem);
+  --shop-text-price: clamp(2rem, 4vw, 3.5rem);
+}
