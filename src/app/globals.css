@@ -829,3 +829,723 @@ a {
         text-align: center;
     }
 }
+
+/* =====================================================
+   EDITORIAL SECTION SYSTEM - Air Company Inspired
+   ===================================================== */
+
+/* Section Number Component */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+}
+
+.section-number {
+    font-family: var(--font-body);
+    font-size: var(--text-micro);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.section-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.section-label {
+    font-family: var(--font-body);
+    font-size: var(--text-micro);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-left: var(--space-3);
+    flex-shrink: 0;
+}
+
+/* Dark variant */
+.section-header--dark .section-number,
+.section-header--dark .section-label {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.section-header--dark .section-line {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Editorial Typography */
+.editorial-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 8vw, 7rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--black);
+}
+
+.editorial-headline--large {
+    font-size: clamp(3rem, 10vw, 9rem);
+}
+
+.editorial-headline--white {
+    color: var(--white);
+}
+
+.editorial-statement {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: 0;
+    color: var(--black);
+    max-width: 900px;
+}
+
+.editorial-statement--centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Numbered List Items */
+.numbered-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+}
+
+.numbered-item__number {
+    font-family: var(--font-body);
+    font-size: var(--text-micro);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    color: var(--text-muted);
+    flex-shrink: 0;
+    min-width: 2rem;
+}
+
+.numbered-item__text {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+/* Editorial Section Padding */
+.editorial-section {
+    padding: var(--space-16) var(--space-6);
+}
+
+.editorial-section--tight {
+    padding: var(--space-12) var(--space-6);
+}
+
+.editorial-section--full {
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .editorial-section {
+        padding: var(--space-12) var(--space-4);
+    }
+
+    .editorial-section--tight {
+        padding: var(--space-8) var(--space-4);
+    }
+
+    .section-header {
+        margin-bottom: var(--space-4);
+    }
+}
+
+/* =====================================================
+   HERO EDITORIAL - Triptych Layout
+   ===================================================== */
+
+.hero-editorial {
+    position: relative;
+    height: 100vh;
+    height: 100svh;
+    background: var(--black);
+    overflow: hidden;
+}
+
+.hero-triptych {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    height: 100%;
+    gap: 4px;
+    background: var(--black);
+}
+
+.hero-panel {
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+}
+
+.hero-panel img,
+.hero-panel video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-panel--center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+}
+
+.hero-panel--center img,
+.hero-panel--center video {
+    width: 80%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-8) var(--space-6);
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+    z-index: 10;
+}
+
+.hero-editorial-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin: 0;
+    max-width: 800px;
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: var(--space-4);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.hero-scroll-indicator span {
+    font-family: var(--font-body);
+    font-size: var(--text-micro);
+    font-weight: 400;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--white);
+    opacity: 0.5;
+}
+
+.hero-scroll-indicator::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 0.8; transform: scaleY(1.2); }
+}
+
+@media (max-width: 992px) {
+    .hero-triptych {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .hero-panel:not(.hero-panel--center) {
+        display: none;
+    }
+
+    .hero-panel--center {
+        height: 100%;
+    }
+
+    .hero-overlay {
+        padding: var(--space-6) var(--space-4);
+    }
+}
+
+/* =====================================================
+   PHILOSOPHY STATEMENT SECTION
+   ===================================================== */
+
+.philosophy-section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-24) var(--space-6);
+    background: var(--cream);
+}
+
+.philosophy-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.philosophy-text {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4.5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.25;
+    letter-spacing: 0;
+    color: var(--black);
+}
+
+@media (max-width: 768px) {
+    .philosophy-section {
+        padding: var(--space-16) var(--space-4);
+        min-height: 60vh;
+    }
+}
+
+/* =====================================================
+   BENEFITS GRID - Bento Layout
+   ===================================================== */
+
+.benefits-grid {
+    padding: var(--space-16) var(--space-6);
+    background: var(--white);
+}
+
+.benefits-grid__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.benefits-grid__layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.benefits-grid__cell {
+    background: var(--white);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.benefits-grid__cell--image {
+    padding: 0;
+    min-height: 300px;
+    position: relative;
+}
+
+.benefits-grid__cell--image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.benefits-grid__headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    margin: 0 0 var(--space-3) 0;
+}
+
+.benefits-grid__description {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    color: var(--text-muted);
+    line-height: 1.5;
+    max-width: 400px;
+}
+
+.benefits-grid__stat {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--black);
+}
+
+.benefits-grid__stat-label {
+    font-family: var(--font-body);
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    margin-top: var(--space-2);
+}
+
+@media (max-width: 992px) {
+    .benefits-grid__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-grid__cell {
+        padding: var(--space-6);
+    }
+
+    .benefits-grid__cell--image {
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        padding: var(--space-12) var(--space-4);
+    }
+}
+
+/* =====================================================
+   TESTIMONIALS EDITORIAL
+   ===================================================== */
+
+.testimonials-editorial {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-16) var(--space-6);
+}
+
+.testimonials-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.testimonials-hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonials-hero__bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+        rgba(0,0,0,0.8) 0%,
+        rgba(0,0,0,0.4) 50%,
+        rgba(0,0,0,0.3) 100%);
+}
+
+.testimonials-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+}
+
+.testimonials-hero__quote {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--white);
+    margin: 0 0 var(--space-6) 0;
+}
+
+.testimonials-hero__quote::before {
+    content: '"';
+}
+
+.testimonials-hero__quote::after {
+    content: '"';
+}
+
+.testimonials-hero__author {
+    font-family: var(--font-body);
+    font-size: var(--text-small);
+    font-weight: 400;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--white);
+    opacity: 0.7;
+}
+
+.testimonials-hero__location {
+    display: block;
+    font-size: var(--text-micro);
+    opacity: 0.5;
+    margin-top: var(--space-1);
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.testimonials-indicators {
+    display: flex;
+    gap: var(--space-2);
+    justify-content: center;
+    margin-top: var(--space-6);
+}
+
+.testimonials-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    border: none;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease);
+}
+
+.testimonials-indicator--active {
+    background: var(--white);
+    transform: scale(1.2);
+}
+
+/* Mini testimonials grid */
+.testimonials-mini {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(0,0,0,0.1);
+}
+
+.testimonials-mini__item {
+    background: var(--black);
+    padding: var(--space-8);
+    text-align: center;
+}
+
+.testimonials-mini__stars {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+    color: var(--accent);
+}
+
+.testimonials-mini__quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--white);
+    margin: 0 0 var(--space-4) 0;
+}
+
+.testimonials-mini__author {
+    font-family: var(--font-body);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 992px) {
+    .testimonials-mini {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-hero {
+        min-height: 70vh;
+        padding: var(--space-12) var(--space-4);
+    }
+
+    .testimonials-mini__item {
+        padding: var(--space-6);
+    }
+}
+
+/* =====================================================
+   COLLECTION PREVIEW
+   ===================================================== */
+
+.collection-preview {
+    padding: var(--space-16) var(--space-6);
+    background: var(--cream);
+}
+
+.collection-preview__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.collection-preview__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+    margin-top: var(--space-8);
+}
+
+.collection-preview__card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform var(--duration-normal) var(--ease);
+}
+
+.collection-preview__card:hover {
+    transform: translateY(-4px);
+}
+
+.collection-preview__card:hover .collection-preview__image img {
+    transform: scale(1.02);
+}
+
+.collection-preview__image {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: var(--white);
+    margin-bottom: var(--space-4);
+}
+
+.collection-preview__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: var(--space-6);
+    transition: transform var(--duration-slow) var(--ease);
+}
+
+.collection-preview__name {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 300;
+    color: var(--black);
+    margin: 0 0 var(--space-1) 0;
+}
+
+.collection-preview__meta {
+    font-family: var(--font-body);
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    margin-bottom: var(--space-3);
+}
+
+.collection-preview__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-family: var(--font-body);
+    font-size: var(--text-small);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--black);
+    transition: gap var(--duration-fast) var(--ease);
+}
+
+.collection-preview__card:hover .collection-preview__link {
+    gap: var(--space-2);
+}
+
+@media (max-width: 768px) {
+    .collection-preview {
+        padding: var(--space-12) var(--space-4);
+    }
+
+    .collection-preview__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+}
+
+/* =====================================================
+   CLOSING CTA
+   ===================================================== */
+
+.closing-cta {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-16) var(--space-6);
+    background: var(--black);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.closing-cta__content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+}
+
+.closing-cta__headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin: 0 0 var(--space-8) 0;
+}
+
+.closing-cta__button {
+    display: inline-block;
+    padding: var(--space-3) var(--space-8);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease);
+}
+
+.closing-cta__button:hover {
+    background: var(--cream);
+    transform: translateY(-2px);
+}
+
+.closing-cta__details {
+    margin-top: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.closing-cta__detail {
+    font-family: var(--font-body);
+    font-size: var(--text-small);
+    color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 768px) {
+    .closing-cta {
+        min-height: 80vh;
+        padding: var(--space-12) var(--space-4);
+    }
+}

@@ -1,12 +1,12 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import HeroSplit from '@/components/sections/HeroSplit';
-import InsiderSection from '@/components/sections/InsiderSection';
+import HeroEditorial from '@/components/sections/HeroEditorial';
+import PhilosophyStatement from '@/components/sections/PhilosophyStatement';
 import SequenceSection from '@/components/sections/SequenceSection';
-import BenefitSection from '@/components/sections/BenefitSection';
-import TestimonialSection from '@/components/sections/TestimonialSection';
-import SystemShowcase from '@/components/sections/SystemShowcase';
-import PaymentSection from '@/components/sections/PaymentSection';
+import BenefitsGrid from '@/components/sections/BenefitsGrid';
+import TestimonialsEditorial from '@/components/sections/TestimonialsEditorial';
+import CollectionPreview from '@/components/sections/CollectionPreview';
+import ClosingCTA from '@/components/sections/ClosingCTA';
 
 export default function Home() {
   return (
@@ -21,26 +21,26 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="page-wrapper">
-        {/* Hero Section */}
-        <HeroSplit />
+        {/* 01 - Hero Editorial Triptych */}
+        <HeroEditorial />
 
-        {/* Insider/Use Cases Section */}
-        <InsiderSection />
+        {/* 01 - Philosophy Statement */}
+        <PhilosophyStatement />
 
-        {/* Scroll Sequence Animation Section */}
+        {/* 02 - Product Reveal Animation */}
         <SequenceSection />
 
-        {/* Benefits Comparison Section */}
-        <BenefitSection />
+        {/* 03 - Benefits Grid (Bento) */}
+        <BenefitsGrid />
 
-        {/* Testimonials Section */}
-        <TestimonialSection />
+        {/* 04 - Editorial Testimonials */}
+        <TestimonialsEditorial />
 
-        {/* System Showcase Section */}
-        <SystemShowcase />
+        {/* 05 - Collection Preview */}
+        <CollectionPreview />
 
-        {/* Payment Methods Section */}
-        <PaymentSection />
+        {/* 06 - Closing CTA */}
+        <ClosingCTA />
 
         {/* Footer */}
         <Footer />

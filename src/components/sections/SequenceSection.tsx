@@ -3,33 +3,50 @@
 import { useRef, useEffect, useState } from 'react';
 import { useSequenceAnimation } from '@/hooks/useSequenceAnimation';
 
-// Benefit card data - elegant copy
+// Benefit card data - numbered editorial style
 const benefitCards = [
     {
         id: 1,
+        number: '01',
         heading: 'Frictionless Cleansing',
-        description: 'Touch-free foam technology that protects delicate skin.',
         position: 'left'
     },
     {
         id: 2,
+        number: '02',
         heading: 'Dense Micro-Foam',
-        description: 'Ultra-fine bubbles that warm every contour.',
         position: 'right'
     },
     {
         id: 3,
+        number: '03',
         heading: 'Sanctuary Bathing',
-        description: 'Transform washing into a restorative ritual.',
         position: 'left'
     },
     {
         id: 4,
+        number: '04',
         heading: 'For Everyone',
-        description: 'Gentle care for all ages and skin types.',
         position: 'right'
     }
 ];
+
+// Section header component
+function SectionHeader({ number, label }: { number: string; label?: string }) {
+    return (
+        <div className="section-header" style={{
+            position: 'absolute',
+            top: 'var(--space-6)',
+            left: 'var(--space-6)',
+            right: 'var(--space-6)',
+            zIndex: 10
+        }}>
+            <span className="section-number">{number}</span>
+            <div className="section-line" />
+            {label && <span className="section-label">{label}</span>}
+        </div>
+    );
+}
 
 export default function SequenceSection() {
     const [isMobile, setIsMobile] = useState(false);
@@ -74,8 +91,11 @@ export default function SequenceSection() {
         <section className="sequence-section-v2" style={{ background: 'var(--cream)' }}>
             {/* Desktop: Scroll-driven animation */}
             {!isMobile && (
-                <div className="sequence-scroll-wrap-v2" ref={wrapperRef}>
+                <div className="sequence-scroll-wrap-v2" ref={wrapperRef} style={{ minHeight: '500vh' }}>
                     <div className="sequence-sticky-v2" ref={stickyRef} style={{ background: 'var(--cream)' }}>
+                        {/* Section Header */}
+                        <SectionHeader number="02" label="The System" />
+
                         {/* Centered Canvas Container */}
                         <div className="sequence-canvas-container">
                             <div className="sequence-canvas-frame" style={{
@@ -90,7 +110,7 @@ export default function SequenceSection() {
                             </div>
                         </div>
 
-                        {/* Benefit Cards - minimal white cards */}
+                        {/* Benefit Cards - numbered editorial style */}
                         <div className="sequence-cards-v2">
                             {benefitCards.map((card, index) => (
                                 <div
@@ -101,30 +121,34 @@ export default function SequenceSection() {
                                         background: 'var(--white)',
                                         boxShadow: 'none',
                                         border: 'none',
-                                        backdropFilter: 'none'
+                                        backdropFilter: 'none',
+                                        padding: 'var(--space-6)'
                                     }}
                                 >
+                                    <span style={{
+                                        fontFamily: 'var(--font-body)',
+                                        fontSize: 'var(--text-micro)',
+                                        fontWeight: 500,
+                                        letterSpacing: 'var(--tracking-wide)',
+                                        color: 'var(--text-muted)',
+                                        display: 'block',
+                                        marginBottom: 'var(--space-2)'
+                                    }}>
+                                        {card.number}
+                                    </span>
                                     <h3 className="sequence-card-heading" style={{
                                         fontFamily: 'var(--font-display)',
-                                        fontSize: 'var(--text-heading)',
+                                        fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
                                         fontWeight: 300,
-                                        lineHeight: 'var(--leading-heading)',
-                                        letterSpacing: 'var(--tracking-tight)',
+                                        lineHeight: 1.1,
+                                        letterSpacing: '-0.01em',
                                         color: 'var(--black)',
                                         textTransform: 'none',
                                         textShadow: 'none',
-                                        marginBottom: 'var(--space-3)'
+                                        margin: 0
                                     }}>
                                         {card.heading}
                                     </h3>
-                                    <p className="sequence-card-description" style={{
-                                        fontFamily: 'var(--font-body)',
-                                        fontSize: 'var(--text-body)',
-                                        lineHeight: 'var(--leading-body)',
-                                        color: 'var(--text-muted)'
-                                    }}>
-                                        {card.description}
-                                    </p>
                                 </div>
                             ))}
                         </div>
@@ -150,6 +174,13 @@ export default function SequenceSection() {
             {/* Mobile: Static layout */}
             {isMobile && (
                 <div className="sequence-mobile-v2" style={{ background: 'var(--cream)' }}>
+                    {/* Mobile Section Header */}
+                    <div className="section-header" style={{ marginBottom: 'var(--space-6)' }}>
+                        <span className="section-number">02</span>
+                        <div className="section-line" />
+                        <span className="section-label">The System</span>
+                    </div>
+
                     <div className="sequence-mobile-canvas-wrap" style={{
                         boxShadow: 'none',
                         borderRadius: '0'
@@ -172,25 +203,27 @@ export default function SequenceSection() {
                                     textAlign: 'left'
                                 }}
                             >
+                                <span style={{
+                                    fontFamily: 'var(--font-body)',
+                                    fontSize: 'var(--text-micro)',
+                                    fontWeight: 500,
+                                    letterSpacing: 'var(--tracking-wide)',
+                                    color: 'var(--text-muted)',
+                                    display: 'block',
+                                    marginBottom: 'var(--space-2)'
+                                }}>
+                                    {card.number}
+                                </span>
                                 <h3 style={{
                                     fontFamily: 'var(--font-display)',
                                     fontSize: 'var(--text-heading)',
                                     fontWeight: 300,
-                                    lineHeight: 'var(--leading-heading)',
+                                    lineHeight: 1.1,
                                     color: 'var(--black)',
-                                    marginBottom: 'var(--space-2)'
+                                    margin: 0
                                 }}>
                                     {card.heading}
                                 </h3>
-                                <p style={{
-                                    fontFamily: 'var(--font-body)',
-                                    fontSize: 'var(--text-body)',
-                                    lineHeight: 'var(--leading-body)',
-                                    color: 'var(--text-muted)',
-                                    margin: 0
-                                }}>
-                                    {card.description}
-                                </p>
                             </div>
                         ))}
                     </div>
