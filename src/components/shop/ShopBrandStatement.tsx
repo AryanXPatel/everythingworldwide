@@ -40,9 +40,9 @@ export default function ShopBrandStatement() {
   return (
     <section ref={sectionRef} className="shop-statement">
       <p ref={textRef} className="shop-statement__text">
-        A precision instrument for daily ritual. Dense foam technology,
-        engineered simplicity, designed for permanence. Bringing the science
-        of cleansing a little closer to you.
+        Explore the complete collection. Each piece meticulously crafted
+        for those who understand that daily rituals deserve exceptional tools.
+        Where form meets function, and every detail matters.
       </p>
     </section>
   );

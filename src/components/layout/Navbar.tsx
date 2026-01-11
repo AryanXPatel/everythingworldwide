@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 
 export default function Navbar() {
-  const { itemCount, toggleCart } = useCart();
+  const { itemCount } = useCart();
 
   return (
     <nav className="eww-navbar">
@@ -37,16 +37,16 @@ export default function Navbar() {
 
         {/* Right: Cart */}
         <div className="eww-navbar__right">
-          <button
+          <Link
+            href="/cart"
             className="eww-navbar__cart"
-            onClick={toggleCart}
             aria-label={`Cart with ${itemCount} items`}
           >
             <span className="eww-navbar__cart-text">Cart</span>
             {itemCount > 0 && (
               <span className="eww-navbar__cart-count">({itemCount})</span>
             )}
-          </button>
+          </Link>
         </div>
       </div>
     </nav>

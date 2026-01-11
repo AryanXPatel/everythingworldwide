@@ -1,20 +1,29 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useParams, notFound } from 'next/navigation';
+import { useParams, notFound, useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import '@/styles/shop.css';
 import { getProductBySlug, products } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import Navbar from '@/components/layout/Navbar';
-import ShopCart from '@/components/shop/ShopCart';
-import ShopCheckoutBar from '@/components/shop/ShopCheckoutBar';
 import Footer from '@/components/layout/Footer';
 
+// Get adjacent products for navigation
+function getAdjacentProducts(currentSlug: string) {
+  const currentIndex = products.findIndex((p) => p.slug === currentSlug);
+  const prevProduct = currentIndex > 0 ? products[currentIndex - 1] : null;
+  const nextProduct = currentIndex < products.length - 1 ? products[currentIndex + 1] : null;
+  return { prevProduct, nextProduct };
+}
+
 export default function ProductPage() {
+  const router = useRouter();
   const params = useParams();
   const slug = params.slug as string;
   const product = getProductBySlug(slug);
+  const { prevProduct, nextProduct } = getAdjacentProducts(slug);
 
   const { addItem } = useCart();
   const [quantity, setQuantity] = useState(1);
@@ -34,7 +43,7 @@ export default function ProductPage() {
     for (let i = 0; i < quantity; i++) {
       addItem(product);
     }
-    setQuantity(1);
+    router.push('/cart');
   };
 
   const decreaseQuantity = () => {
@@ -50,7 +59,6 @@ export default function ProductPage() {
   return (
     <>
       <Navbar />
-      <ShopCart />
       <main className="product-page">
         <div className="product-page__grid">
           {/* Product Info - Left Side */}
@@ -103,6 +111,63 @@ export default function ProductPage() {
                 </ul>
               </div>
             )}
+
+            {/* Product Specifications */}
+            {product.specs && product.specs.length > 0 && (
+              <div className="product-page__specs">
+                <h3 className="product-page__specs-title">Specifications</h3>
+                <dl className="product-page__specs-list">
+                  {product.specs.map((spec, i) => (
+                    <div key={i} className="product-page__spec-row">
+                      <dt className="product-page__spec-label">{spec.label}</dt>
+                      <dd className="product-page__spec-value">{spec.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            )}
+
+            {/* Product Story */}
+            {(product.details || (product.features && product.features.length > 0)) && (
+              <div className="product-page__story">
+                {product.details && (
+                  <p className="product-page__story-text">{product.details}</p>
+                )}
+                {product.features && product.features.length > 0 && (
+                  <ul className="product-page__features">
+                    {product.features.map((feature, i) => (
+                      <li key={i} className="product-page__feature">{feature}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+
+            {/* Product Navigation */}
+            <div className="product-page__nav">
+              {prevProduct ? (
+                <Link href={`/shop/${prevProduct.slug}`} className="product-page__nav-link product-page__nav-link--prev">
+                  <span className="product-page__nav-arrow">←</span>
+                  <span className="product-page__nav-text">
+                    <span className="product-page__nav-label">Previous</span>
+                    <span className="product-page__nav-name">{prevProduct.name}</span>
+                  </span>
+                </Link>
+              ) : (
+                <div />
+              )}
+              {nextProduct ? (
+                <Link href={`/shop/${nextProduct.slug}`} className="product-page__nav-link product-page__nav-link--next">
+                  <span className="product-page__nav-text">
+                    <span className="product-page__nav-label">Next</span>
+                    <span className="product-page__nav-name">{nextProduct.name}</span>
+                  </span>
+                  <span className="product-page__nav-arrow">→</span>
+                </Link>
+              ) : (
+                <div />
+              )}
+            </div>
           </div>
 
           {/* Product Images - Right Side */}
@@ -143,7 +208,6 @@ export default function ProductPage() {
           </div>
         </div>
       </main>
-      <ShopCheckoutBar />
       <Footer />
     </>
   );

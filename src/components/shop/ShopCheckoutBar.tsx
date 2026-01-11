@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { useCart } from '@/context/CartContext';
 
 export default function ShopCheckoutBar() {
+  const router = useRouter();
   const barRef = useRef<HTMLDivElement>(null);
   const { items, subtotal, itemCount } = useCart();
   const isVisible = items.length > 0;
@@ -29,12 +31,7 @@ export default function ShopCheckoutBar() {
   }, [isVisible]);
 
   const handleCheckout = () => {
-    // For now, log and could redirect to Shopify
-    console.log('Checkout with items:', items);
-    // window.open('https://your-store.myshopify.com/cart', '_blank');
-    alert(
-      `Checkout: ${itemCount} item(s) for €${subtotal.toFixed(2)}\n\nShopify integration coming soon!`
-    );
+    router.push('/cart');
   };
 
   return (
@@ -46,9 +43,9 @@ export default function ShopCheckoutBar() {
       <button
         className="shop-checkout-bar__btn"
         onClick={handleCheckout}
-        aria-label={`Checkout - ${itemCount} item(s) for €${subtotal.toFixed(2)}`}
+        aria-label={`View cart - ${itemCount} item(s) for €${subtotal.toFixed(2)}`}
       >
-        <span className="shop-checkout-bar__action">Checkout</span>
+        <span className="shop-checkout-bar__action">View Cart</span>
         <span className="shop-checkout-bar__divider" aria-hidden="true">
           —
         </span>

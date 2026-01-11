@@ -1,22 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-
-interface SectionHeaderProps {
-  number: string;
-  label?: string;
-  dark?: boolean;
-}
-
-function SectionHeader({ number, label, dark = false }: SectionHeaderProps) {
-  return (
-    <div className={`section-header ${dark ? 'section-header--dark' : ''}`}>
-      <span className="section-number">{number}</span>
-      <div className="section-line" />
-      {label && <span className="section-label">{label}</span>}
-    </div>
-  );
-}
+import { SectionHeader } from './PhilosophyStatement';
 
 export default function BenefitsGrid() {
   return (
@@ -25,8 +10,8 @@ export default function BenefitsGrid() {
         <SectionHeader number="03" label="Why KINUAMI" />
 
         <div className="benefits-grid__layout">
-          {/* Row 1: Text + Image */}
-          <div className="benefits-grid__cell">
+          {/* Top-left: Frictionless Cleansing text */}
+          <div className="benefits-grid__cell benefits-grid__cell--text benefits-grid__cell--text1">
             <h3 className="benefits-grid__headline">
               Frictionless<br />Cleansing.
             </h3>
@@ -34,25 +19,31 @@ export default function BenefitsGrid() {
               Touch-free foam technology delivers perfect coverage without manual effort
             </p>
           </div>
-          <div className="benefits-grid__cell benefits-grid__cell--image">
+
+          {/* Top-right: Hand image (spans 2 rows) */}
+          <div className="benefits-grid__cell benefits-grid__cell--image benefits-grid__cell--image1">
             <Image
               src="/images/products/hands_covered_in_foam.jpg"
               alt="Hands covered in dense foam"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: 'cover' }}
             />
           </div>
 
-          {/* Row 2: Image + Text */}
-          <div className="benefits-grid__cell benefits-grid__cell--image">
+          {/* Middle-left: Foam blob image */}
+          <div className="benefits-grid__cell benefits-grid__cell--image benefits-grid__cell--image2">
             <Image
               src="/images/products/white_foam_swirl_1.png"
               alt="Dense foam swirl"
               fill
-              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'contain' }}
             />
           </div>
-          <div className="benefits-grid__cell">
+
+          {/* Middle-right: Warmth Retention text */}
+          <div className="benefits-grid__cell benefits-grid__cell--text benefits-grid__cell--text2">
             <h3 className="benefits-grid__headline">
               Warmth<br />Retention.
             </h3>
@@ -61,8 +52,8 @@ export default function BenefitsGrid() {
             </p>
           </div>
 
-          {/* Row 3: Text + Stat */}
-          <div className="benefits-grid__cell">
+          {/* Bottom-left: For All Skin Types text */}
+          <div className="benefits-grid__cell benefits-grid__cell--text benefits-grid__cell--text3">
             <h3 className="benefits-grid__headline">
               For All<br />Skin Types.
             </h3>
@@ -70,7 +61,9 @@ export default function BenefitsGrid() {
               Gentle care formulated for sensitive skin, safe for the whole family
             </p>
           </div>
-          <div className="benefits-grid__cell" style={{ textAlign: 'center' }}>
+
+          {/* Bottom-right: 99% stat */}
+          <div className="benefits-grid__cell benefits-grid__cell--stat">
             <span className="benefits-grid__stat">99%</span>
             <p className="benefits-grid__stat-label">Cleaning Power</p>
           </div>

@@ -1,6 +1,11 @@
 // src/data/products.ts
 // Product data for Kinuami Shop
 
+export interface ProductSpec {
+  label: string;
+  value: string;
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -13,6 +18,9 @@ export interface Product {
     gallery: string[];
   };
   includes?: string[];
+  specs?: ProductSpec[];
+  details?: string;
+  features?: string[];
   shopifyVariantId?: string;
 }
 
@@ -34,6 +42,15 @@ export const products: Product[] = [
       ],
     },
     includes: ['Main unit', 'Wall mount', 'Starter soap cartridge'],
+    specs: [
+      { label: 'Color', value: 'Matte White' },
+      { label: 'Material', value: 'ABS Polymer + Stainless Steel' },
+      { label: 'Dimensions', value: '120mm × 280mm × 95mm' },
+      { label: 'Capacity', value: '300ml Foam Cartridge' },
+      { label: 'Warranty', value: '2 Years' },
+    ],
+    details: 'The KINUAMI U transforms your daily shower into a precision ritual. Dense foam technology delivers the perfect cleanse every time, while engineered simplicity ensures years of reliable performance.',
+    features: ['Automated foam dispensing', 'Wall-mounted design', 'Replaceable cartridges', 'Touch-free operation'],
     shopifyVariantId: 'gid://shopify/ProductVariant/XXXXXXXXXX',
   },
   {
@@ -48,6 +65,15 @@ export const products: Product[] = [
       gallery: ['/images/products/Dedicated_shower_head.jpg'],
     },
     includes: ['Shower head', 'Connection fitting'],
+    specs: [
+      { label: 'Color', value: 'Matte White' },
+      { label: 'Material', value: 'ABS + Chrome Finish' },
+      { label: 'Dimensions', value: '85mm × 240mm' },
+      { label: 'Flow Rate', value: '9L/min' },
+      { label: 'Compatibility', value: 'Standard 1/2" Connection' },
+    ],
+    details: 'Designed as the perfect companion to the KINUAMI U. Engineered water flow meets refined aesthetics.',
+    features: ['Optimized spray pattern', 'Easy installation', 'Premium finish'],
     shopifyVariantId: 'gid://shopify/ProductVariant/YYYYYYYYYY',
   },
 ];

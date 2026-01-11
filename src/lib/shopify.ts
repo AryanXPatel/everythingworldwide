@@ -14,3 +14,16 @@ export async function createCheckout(variantId: string) {
   const newCheckout = await client.checkout.addLineItems(checkout.id, lineItemsToAdd);
   return newCheckout;
 }
+
+// Create checkout with multiple items from cart
+export async function createCheckoutWithItems(
+  items: Array<{ variantId: string; quantity: number }>
+) {
+  const checkout = await client.checkout.create();
+  const lineItemsToAdd = items.map(item => ({
+    variantId: item.variantId,
+    quantity: item.quantity,
+  }));
+  const newCheckout = await client.checkout.addLineItems(checkout.id, lineItemsToAdd);
+  return newCheckout;
+}

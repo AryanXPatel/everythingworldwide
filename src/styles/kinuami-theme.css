@@ -391,3 +391,407 @@ a {
     gap: 1.5rem 2rem;
   }
 }
+
+/* ==========================================================================
+   HERO EDITORIAL - Staggered Typography
+   ========================================================================== */
+
+.hero-editorial {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 var(--space-4);
+}
+
+.hero-editorial-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+}
+
+/* Staggered line styling - Air Company inspired */
+.hero-line {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 300;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.hero-line--small {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25em;
+}
+
+.hero-line--large {
+  font-size: clamp(5rem, 18vw, 14rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+}
+
+.hero-line--medium {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-top: 0.15em;
+}
+
+/* Scroll indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.hero-scroll-indicator span {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* Hero responsive */
+@media (max-width: 768px) {
+  .hero-line--small {
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+  }
+
+  .hero-line--large {
+    font-size: clamp(3.5rem, 20vw, 8rem);
+  }
+
+  .hero-line--medium {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+}
+
+/* ==========================================================================
+   PHILOSOPHY SECTION - Font Weight Variation
+   ========================================================================== */
+
+.philosophy-section {
+  background: var(--cream);
+  padding: var(--space-16) var(--space-4);
+  display: flex;
+  justify-content: center;
+}
+
+.philosophy-content {
+  max-width: 900px;
+  text-align: center;
+}
+
+.philosophy-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--black);
+  margin: 0;
+}
+
+.philosophy-text--light {
+  font-weight: 300;
+  color: var(--text-muted);
+}
+
+.philosophy-text--emphasis {
+  font-weight: 500;
+  color: var(--black);
+}
+
+/* Section Header Component */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  justify-content: center;
+}
+
+.section-header--dark {
+  color: var(--white);
+}
+
+.section-number {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
+}
+
+.section-line {
+  width: 60px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.2;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+/* Philosophy responsive */
+@media (max-width: 768px) {
+  .philosophy-section {
+    padding: var(--space-12) var(--space-3);
+  }
+
+  .philosophy-text {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+}
+
+/* ==========================================================================
+   BENEFITS GRID - Simple 2-Column Grid Layout
+   ========================================================================== */
+
+.benefits-grid {
+  background: var(--white);
+  padding: var(--space-16) var(--space-4);
+}
+
+.benefits-grid__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Main Grid - 2 columns with grid-template-areas */
+.benefits-grid__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "text1  image1"
+    "image2 text2"
+    "text3  stat";
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+/* Text Cells - shared styles */
+.benefits-grid__cell--text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+/* Position cells using specific classes */
+.benefits-grid__cell--text1 {
+  grid-area: text1;
+}
+
+.benefits-grid__cell--text2 {
+  grid-area: text2;
+}
+
+.benefits-grid__cell--text3 {
+  grid-area: text3;
+}
+
+/* Image Cells */
+.benefits-grid__cell--image {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.benefits-grid__cell--image1 {
+  grid-area: image1;
+}
+
+.benefits-grid__cell--image2 {
+  grid-area: image2;
+}
+
+/* Stat Cell */
+.benefits-grid__cell--stat {
+  grid-area: stat;
+  background: var(--cream);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-6);
+  min-height: 200px;
+}
+
+.benefits-grid__stat {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--black);
+}
+
+.benefits-grid__stat-label {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: var(--space-2);
+}
+
+/* Headlines */
+.benefits-grid__headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--black);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.benefits-grid__description {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 35ch;
+}
+
+/* Tablet - Keep 2 columns but adjust areas */
+@media (max-width: 992px) {
+  .benefits-grid__layout {
+    grid-template-areas:
+      "text1  image1"
+      "image2 text2"
+      "text3  stat";
+    gap: var(--space-2);
+  }
+
+  .benefits-grid__cell--image {
+    min-height: 180px;
+  }
+
+  .benefits-grid__cell--stat {
+    min-height: 180px;
+  }
+}
+
+/* Mobile - Single column */
+@media (max-width: 768px) {
+  .benefits-grid {
+    padding: var(--space-12) var(--space-3);
+  }
+
+  .benefits-grid__layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "text1"
+      "image1"
+      "text2"
+      "image2"
+      "text3"
+      "stat";
+    gap: var(--space-3);
+  }
+
+  .benefits-grid__stat {
+    font-size: clamp(4rem, 20vw, 6rem);
+  }
+
+  .benefits-grid__cell--image {
+    min-height: 240px;
+  }
+}
+
+/* ==========================================================================
+   GRAIN OVERLAY UTILITY - Editorial Atmosphere
+   ========================================================================== */
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+/* Stronger grain for dark sections */
+.grain-overlay--dark::before {
+  opacity: 0.03;
+}
+
+/* Ensure content stays above grain */
+.grain-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   ANIMATED LINK UTILITY
+   ========================================================================== */
+
+.link-animated {
+  position: relative;
+  display: inline-block;
+}
+
+.link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--duration-normal) var(--ease);
+}
+
+.link-animated:hover::after {
+  width: 100%;
+}
+

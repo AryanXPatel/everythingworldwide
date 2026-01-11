@@ -22,10 +22,19 @@ export default function PhilosophyStatement() {
       <div className="philosophy-content">
         <SectionHeader number="01" />
         <p className="philosophy-text">
-          A precision instrument for daily ritual.
-          Dense foam technology, engineered simplicity,
-          designed for permanence. Bringing the science
-          of cleansing a little closer to you.
+          <span className="philosophy-text--light">A precision instrument for</span>{' '}
+          <span className="philosophy-text--emphasis">daily ritual.</span>
+          <br />
+          <span className="philosophy-text--light">Dense foam technology,</span>{' '}
+          <span className="philosophy-text--emphasis">engineered simplicity,</span>
+          <br />
+          <span className="philosophy-text--light">designed for</span>{' '}
+          <span className="philosophy-text--emphasis">permanence.</span>
+          <br />
+          <span className="philosophy-text--light">Bringing the science of cleansing</span>
+          <br />
+          <span className="philosophy-text--light">a little closer to</span>{' '}
+          <span className="philosophy-text--emphasis">you.</span>
         </p>
       </div>
     </section>

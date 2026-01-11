@@ -2,22 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-
-interface SectionHeaderProps {
-  number: string;
-  label?: string;
-  dark?: boolean;
-}
-
-function SectionHeader({ number, label, dark = false }: SectionHeaderProps) {
-  return (
-    <div className={`section-header ${dark ? 'section-header--dark' : ''}`}>
-      <span className="section-number">{number}</span>
-      <div className="section-line" />
-      {label && <span className="section-label">{label}</span>}
-    </div>
-  );
-}
+import { SectionHeader } from './PhilosophyStatement';
 
 const products = [
   {
@@ -26,6 +11,7 @@ const products = [
     subtitle: 'The System',
     price: '€499',
     image: '/images/shop/Hero-product.webp',
+    isHero: true,
   },
   {
     slug: 'shower-head',
@@ -33,6 +19,7 @@ const products = [
     subtitle: 'Attachment',
     price: '€79',
     image: '/images/shop/shower-head.webp',
+    isHero: false,
   },
 ];
 
@@ -47,23 +34,27 @@ export default function CollectionPreview() {
             <Link
               key={product.slug}
               href={`/shop/${product.slug}`}
-              className="collection-preview__card"
+              className={`collection-preview__card ${product.isHero ? 'collection-preview__card--hero' : ''}`}
             >
               <div className="collection-preview__image">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  style={{ objectFit: 'contain', padding: '2rem' }}
+                  sizes={product.isHero ? '(max-width: 768px) 100vw, 60vw' : '(max-width: 768px) 100vw, 40vw'}
+                  style={{ objectFit: 'contain' }}
                 />
               </div>
-              <h3 className="collection-preview__name">{product.name}</h3>
-              <p className="collection-preview__meta">
-                {product.subtitle} — {product.price}
-              </p>
-              <span className="collection-preview__link">
-                Discover <span aria-hidden="true">→</span>
-              </span>
+              <div className="collection-preview__info">
+                <h3 className="collection-preview__name">{product.name}</h3>
+                <p className="collection-preview__meta">
+                  {product.subtitle} — {product.price}
+                </p>
+                <span className="collection-preview__link">
+                  <span className="collection-preview__link-text">Discover</span>
+                  <span className="collection-preview__link-arrow" aria-hidden="true">→</span>
+                </span>
+              </div>
             </Link>
           ))}
         </div>

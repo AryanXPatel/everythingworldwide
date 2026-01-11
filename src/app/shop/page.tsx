@@ -3,24 +3,20 @@
 
 import '@/styles/shop.css';
 import Navbar from '@/components/layout/Navbar';
-import ShopCart from '@/components/shop/ShopCart';
 import ShopHeroEditorial from '@/components/shop/ShopHeroEditorial';
 import ShopBrandStatement from '@/components/shop/ShopBrandStatement';
 import ShopProductGrid from '@/components/shop/ShopProductGrid';
-import ShopCheckoutBar from '@/components/shop/ShopCheckoutBar';
 import Footer from '@/components/layout/Footer';
 
 export default function ShopPage() {
   return (
     <>
       <Navbar />
-      <ShopCart />
       <main className="shop-page">
         <ShopHeroEditorial />
         <ShopBrandStatement />
         <ShopProductGrid />
       </main>
-      <ShopCheckoutBar />
       <Footer />
     </>
   );

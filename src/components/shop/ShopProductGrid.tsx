@@ -63,7 +63,12 @@ export default function ShopProductGrid() {
 
       <div ref={gridRef} className="shop-product-grid">
         {products.map((product, index) => (
-          <ShopProductCard key={product.id} product={product} index={index} />
+          <ShopProductCard
+            key={product.id}
+            product={product}
+            index={index}
+            featured={index === 0}
+          />
         ))}
       </div>
     </section>

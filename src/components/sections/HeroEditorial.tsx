@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function HeroEditorial() {
   return (
-    <section className="hero-editorial">
+    <section className="hero-editorial grain-overlay grain-overlay--dark">
       {/* Full-screen GIF Background */}
       <div className="hero-media">
         <Image
@@ -18,11 +18,12 @@ export default function HeroEditorial() {
         />
       </div>
 
-      {/* Headline Overlay */}
+      {/* Headline Overlay - Staggered Editorial Typography */}
       <div className="hero-overlay">
         <h1 className="hero-editorial-headline">
-          Turning Your Shower<br />
-          Into a Sanctuary.
+          <span className="hero-line hero-line--small">Turning Your</span>
+          <span className="hero-line hero-line--large">Shower</span>
+          <span className="hero-line hero-line--medium">Into a Sanctuary.</span>
         </h1>
       </div>
 
