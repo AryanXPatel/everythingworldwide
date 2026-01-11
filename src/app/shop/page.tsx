@@ -2,7 +2,7 @@
 'use client';
 
 import '@/styles/shop.css';
-import ShopNavbar from '@/components/shop/ShopNavbar';
+import Navbar from '@/components/layout/Navbar';
 import ShopCart from '@/components/shop/ShopCart';
 import ShopHeroEditorial from '@/components/shop/ShopHeroEditorial';
 import ShopBrandStatement from '@/components/shop/ShopBrandStatement';
@@ -13,7 +13,7 @@ import Footer from '@/components/layout/Footer';
 export default function ShopPage() {
   return (
     <>
-      <ShopNavbar />
+      <Navbar />
       <ShopCart />
       <main className="shop-page">
         <ShopHeroEditorial />

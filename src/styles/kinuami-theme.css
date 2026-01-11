@@ -1,16 +1,16 @@
-/* KINUAMI Design System - Air Company Inspired */
+/* EWW Design System */
 
 /* ============================================
-   1. FONTS
+   1. FONTS - Using free Google Fonts
+   Space Grotesk (display) + Inter (body)
+   Loaded via next/font in layout.tsx
    ============================================ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
 
 :root {
-    /* Font Families */
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: 'Inter', monospace;
+    /* Font Families - CSS variables set by next/font in layout.tsx */
+    /* --font-display: Space Grotesk */
+    /* --font-body: Inter */
+    --font-mono: 'SF Mono', 'Fira Code', monospace;
 
     /* ============================================
        2. COLORS - Only 5 total
@@ -157,4 +157,237 @@ a {
   --shop-text-massive: clamp(6rem, 18vw, 18rem);
   --shop-text-statement: clamp(1.75rem, 5vw, 4rem);
   --shop-text-price: clamp(2rem, 4vw, 3.5rem);
+}
+
+/* ==========================================================================
+   EWW UNIFIED NAVBAR - Centered Logo Design
+   ========================================================================== */
+
+.eww-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.eww-navbar__container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1.25rem 3rem;
+}
+
+/* Left: Navigation Links */
+.eww-navbar__left {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.eww-navbar__link {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--black);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s ease;
+}
+
+.eww-navbar__link:hover {
+  opacity: 0.5;
+}
+
+/* Center: Logo */
+.eww-navbar__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.eww-navbar__logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.eww-navbar__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Right: Cart */
+.eww-navbar__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.eww-navbar__cart {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  background: transparent;
+  color: var(--black);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.eww-navbar__cart:hover {
+  opacity: 0.5;
+}
+
+.eww-navbar__cart-text {
+  /* inherits from parent */
+}
+
+.eww-navbar__cart-count {
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+/* Navbar responsive */
+@media (max-width: 768px) {
+  .eww-navbar__container {
+    grid-template-columns: auto 1fr auto;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .eww-navbar__left {
+    display: none;
+  }
+
+  .eww-navbar__brand {
+    justify-content: flex-start;
+  }
+
+  .eww-navbar__logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .eww-navbar__name {
+    font-size: 1rem;
+  }
+}
+
+/* ==========================================================================
+   EWW TYPOGRAPHIC FOOTER
+   ========================================================================== */
+
+.eww-footer {
+  background: #f5f5f5;
+  padding: 6rem 2rem 3rem;
+  text-align: center;
+}
+
+.eww-footer__container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.eww-footer__brand {
+  margin-bottom: 3rem;
+}
+
+.eww-footer__logo-text {
+  font-family: var(--font-display);
+  font-size: clamp(10rem, 20vw, 18rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  color: var(--black);
+  margin: 0;
+}
+
+.eww-footer__full-name {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+.eww-footer__tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.eww-footer__divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 3rem 0;
+}
+
+.eww-footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.eww-footer__link {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--black);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: opacity var(--duration-fast) var(--ease);
+}
+
+.eww-footer__link:hover {
+  opacity: 0.6;
+}
+
+.eww-footer__copyright {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Footer responsive */
+@media (max-width: 768px) {
+  .eww-footer {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .eww-footer__logo-text {
+    font-size: clamp(6rem, 25vw, 10rem);
+  }
+
+  .eww-footer__links {
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+  }
 }

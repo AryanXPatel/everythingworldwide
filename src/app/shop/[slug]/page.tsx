@@ -6,7 +6,7 @@ import Image from 'next/image';
 import '@/styles/shop.css';
 import { getProductBySlug, products } from '@/data/products';
 import { useCart } from '@/context/CartContext';
-import ShopNavbar from '@/components/shop/ShopNavbar';
+import Navbar from '@/components/layout/Navbar';
 import ShopCart from '@/components/shop/ShopCart';
 import ShopCheckoutBar from '@/components/shop/ShopCheckoutBar';
 import Footer from '@/components/layout/Footer';
@@ -49,7 +49,7 @@ export default function ProductPage() {
 
   return (
     <>
-      <ShopNavbar />
+      <Navbar />
       <ShopCart />
       <main className="product-page">
         <div className="product-page__grid">

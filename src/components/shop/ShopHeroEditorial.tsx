@@ -71,7 +71,7 @@ export default function ShopHeroEditorial() {
 
       {/* Title */}
       <div ref={titleRef} className="shop-hero-editorial__content">
-        <span className="shop-hero-editorial__label">The Kinuami Collection</span>
+        <span className="shop-hero-editorial__label">The Collection</span>
       </div>
 
       {/* Scroll Indicator */}
